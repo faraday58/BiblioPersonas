@@ -21,6 +21,7 @@ namespace BiblioPersonas
         public string Nombre { get => nombre; 
             set
             {
+                
                 if (value == "")
                 {
                     nombre = "Anónimo";
@@ -31,9 +32,18 @@ namespace BiblioPersonas
                 }
             }
         }
-        public string Telefono { get => telefono; set => telefono = value; }
-        public byte Edad { get => edad; set => edad = value; }
-        public string Direccion { get => direccion; set => direccion = value; }
+        //Manejo de arrow functions y operador ternario
+        //Simplifica la expresión utilizada en Nombre
+        // También podemos decir que se trata de una refactorización
+        public string Telefono { get => telefono;
+            set => telefono = value == "" ? "56581111": value ; 
+        }
+        public byte Edad { get => edad;
+            set => edad = value < 13 || value > 100  ? (byte)18 : value; 
+        }
+        public string Direccion { get => direccion; 
+            set => direccion =  value == ""? "CDMX": value ; 
+        }
 
         #endregion
 
